@@ -154,13 +154,12 @@ s0.parentNode.insertBefore(s1,s0);
     document.getElementById('timer').innerHTML = `${hours}h ${minutes}m ${seconds}s`;
 
     // Check if the countdown has reached zero
-    if (timeRemaining < 0) {
+    if (timeRemaining <= 0) {
       clearInterval(countdownInterval);
-      document.getElementById('timer').innerHTML = "Promotion Ended";
+      document.getElementById('timer').innerHTML = "00:00";
     }
   }, 1000);
-</script>    
-<!--End of Tawk.to Script-->
+</script>.to Script-->
 
 <!--End of Tawk.to Script-->
 
