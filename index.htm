@@ -34,6 +34,14 @@
             width: 100%;
             height: 100%;
         }
+    
+    #countdown {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+    }
+  
   </style>
 
   <meta charset="utf-8">
@@ -74,8 +82,9 @@
               
              <!-- <h2 class="mb-6">&bull;2 ans seulement 35 €</h2>
               <h2 class="mb-6">&bull;à vie Fonctionne sur 7 appareils seulement 79 €</h2> -->
-           
-            <h1 class="mb-5">Order your package now. Enjoy watching your favorite movies and all TV shows and sports channels.</h1>
+           <div id="countdown">🕛 Promotion Ends In: <span id="timer"> 🕛</span></div>
+
+            <h1 class="mb-5">📺 Order your package now. Enjoy watching your favorite movies and all TV shows and sports channels. 📽️</h1>
             <a class="btn btn-outline btn-xl js-scroll-trigger" href="https://api.whatsapp.com/send?phone=212688649879&text=I wanna subscribe now "><img src="css/whatsapp.svg" class="whatsapp-icon"> Shop Now</a>
 <br>
             <br>
@@ -125,6 +134,32 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
+
+  <!-- timer -->  
+<script>
+  // Set the date and time for the promotion end (replace with your desired date and time)
+  const promotionEndDate = new Date('December 31, 2023 00:00:00').getTime();
+
+  // Update the countdown every 1 second
+  const countdownInterval = setInterval(() => {
+    const now = new Date().getTime();
+    const timeRemaining = promotionEndDate - now;
+
+    // Calculate hours, minutes, and seconds
+    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+    // Display the countdown
+    document.getElementById('timer').innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+
+    // Check if the countdown has reached zero
+    if (timeRemaining < 0) {
+      clearInterval(countdownInterval);
+      document.getElementById('timer').innerHTML = "Promotion Ended";
+    }
+  }, 1000);
+</script>    
 <!--End of Tawk.to Script-->
 
 <!--End of Tawk.to Script-->
